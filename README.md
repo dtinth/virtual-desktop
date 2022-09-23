@@ -9,5 +9,5 @@ docker compose build
 docker compose up -d
 
 # Restart desktop
-docker compose up -d --force-recreate desktop && docker compose logs -f
+docker compose build && docker compose up -d --force-recreate desktop && docker compose logs -f
 ```
