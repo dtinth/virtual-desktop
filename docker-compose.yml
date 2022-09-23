@@ -1,0 +1,15 @@
+services:
+  desktop:
+    build: .
+    privileged: true
+    ipc: host
+    tmpfs: /tmp
+    volumes:
+      - ./Procfile:/Procfile:ro
+      - ./opt/desktop:/opt/desktop:ro
+    user: desktop
+  novnc:
+    image: geek1011/easy-novnc
+    command: -a :5800 -h desktop --no-url-password
+    ports:
+      - 127.0.0.1:5800:5800
