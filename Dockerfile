@@ -16,4 +16,4 @@ COPY ./Procfile /Procfile
 COPY ./home/desktop/ /home/desktop/
 RUN sudo chown -R desktop:desktop /home/desktop
 USER desktop
-CMD exo run --help
+CMD exo run
