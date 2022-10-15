@@ -7,7 +7,6 @@ RUN apt-get update -y && \
 ENV VNC_DESKTOP_NAME "Xtigervnc"
 ENV VNC_GEOMETRY 1920x1080
 ENV DISPLAY :0
-RUN wget -O- https://github.com/mattn/goreman/releases/download/v0.3.13/goreman_v0.3.13_linux_amd64.tar.gz | tar xvz --strip-components=1 -C /usr/local/bin
 RUN wget https://github.com/deref/exo/releases/download/2021.11.16/exo_2021.11.16_linux_amd64.deb && apt install -y ./exo_2021.11.16_linux_amd64.deb
 RUN useradd --create-home --shell /bin/bash desktop -u 1000
 RUN echo 'desktop ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
