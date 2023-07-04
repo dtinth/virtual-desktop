@@ -1,0 +1,8 @@
+load-module module-null-sink sink_name=loopback1 sink_properties=device.description=loopback1
+load-module module-remap-source source_name=loopback1monitor master=loopback1.monitor source_properties=device.description=loopback1monitor
+
+load-module module-null-sink sink_name=loopback2 sink_properties=device.description=loopback2
+load-module module-remap-source source_name=loopback2monitor master=loopback2.monitor source_properties=device.description=loopback2monitor
+
+set-default-sink loopback1
+set-default-source loopback2monitor

@@ -13,6 +13,7 @@ RUN echo 'desktop ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 COPY ./opt/ /opt/
 COPY ./process-compose.yml /process-compose.yml
 COPY ./home/desktop/ /home/desktop/
+COPY ./etc/ /etc/
 RUN sudo chown -R desktop:desktop /home/desktop
 USER desktop
 CMD process-compose -f /process-compose.yml up -t=false
