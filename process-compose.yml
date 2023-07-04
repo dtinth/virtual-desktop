@@ -1,0 +1,20 @@
+version: "0.5"
+processes:
+  vnc:
+    command: bash /opt/desktop/vnc.sh
+    availability:
+      restart: "always"
+  session:
+    command: bash /opt/desktop/session.sh
+    availability:
+      restart: "always"
+    depends_on:
+      vnc:
+        condition: process_started
+  pulseaudio:
+    command: pulseaudio
+    availability:
+      restart: "always"
+    depends_on:
+      session:
+        condition: process_started

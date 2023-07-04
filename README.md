@@ -8,8 +8,15 @@ services:
     image: ghcr.io/dtinth/virtual-desktop:main
     privileged: true
     ipc: host
-    tmpfs: /tmp
+    tmpfs: /tmp:exec
     user: desktop
+    hostname: desktop
+    environment:
+      VNC_GEOMETRY: 1280x800
+    volumes:
+      - ./shared:/mnt/shared
+    ports:
+      - 127.0.0.1:5900:5900
   novnc:
     image: geek1011/easy-novnc
     command: -a :5800 -h desktop --no-url-password
